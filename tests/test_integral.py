@@ -1,9 +1,7 @@
 import unittest
-import math
 from unittest import TestCase
 from scipy import integrate
-from simple_methods import function, rectangle_integral, trapezoid_integral, parabola_integral, parabola_integral_full_n, \
-    cubic_parabola_integral, boole_integral
+from simple_methods import *
 
 EPSILON = 1e-4
 
