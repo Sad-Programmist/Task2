@@ -13,12 +13,14 @@ arguments = np.array([[-0.577350269, 0.577350269],
 
 
 def gaussian_integral(function, a, b, n):
+    if n < 2 or n > 6:
+        raise ValueError("n should be in [2; 6]")
     function_sum = 0
     weight_coefficient = weight_coefficients[n - 2]
     argument = arguments[n - 2]
-    for point_ind in range(n):
-        xi = (b + a) / 2 + argument[point_ind] * (b - a) / 2
-        function_sum += weight_coefficient[point_ind] * function(xi)
+    for arg, weight in zip(argument, weight_coefficient):
+        xi = (b + a) / 2 + arg * (b - a) / 2
+        function_sum += weight * function(xi)
     return (b - a) / 2 * function_sum
 
 
