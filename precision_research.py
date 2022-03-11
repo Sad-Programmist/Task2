@@ -14,7 +14,7 @@ def error_function(integral_function, function, a, b, n):
 
 def draw_function(function, a, b, n, step):
     list_n = np.arange(1, n, step)
-    h = (b-a)/list_n
+    h = (b - a) / list_n
 
     fig, ax = plt.subplots()
     ax.plot(h, error_function(boole_integral, function, a, b, list_n), c="deepskyblue", label="boole")
