@@ -23,10 +23,10 @@ class Test(TestCase):
 
     def test_trapezoid_integral01(self):
         a = -9
-        b = 5.2
-        n = 10000
-        result, error = integrate.quad(function1, a, b)
-        self.assertTrue(abs(trapezoid_integral(function1, a, b, n) - result) < EPSILON)
+        b = -5.2
+        n = 5000
+        result, error = integrate.quad(function2, a, b)
+        self.assertTrue(abs(trapezoid_integral(function2, a, b, n) - result) < EPSILON)
 
     def test_trapezoid_integral02(self):
         a = 32.1
@@ -38,9 +38,9 @@ class Test(TestCase):
     def test_parabola_integral01(self):
         a = -100
         b = -99
-        n = 5000
-        result, error = integrate.quad(function1, a, b)
-        self.assertTrue(abs(parabola_integral(function1, a, b, n) - result) < EPSILON)
+        n = 100000
+        result, error = integrate.quad(function3, a, b)
+        self.assertTrue(abs(parabola_integral(function3, a, b, n) - result) < EPSILON)
 
     def test_parabola_integral02(self):
         a = -32
@@ -53,8 +53,8 @@ class Test(TestCase):
         a = 47.2154
         b = 84.02154
         n = 5000
-        result, error = integrate.quad(function1, a, b)
-        self.assertTrue(abs(parabola_integral_full_n(function1, a, b, n) - result) < EPSILON)
+        result, error = integrate.quad(function2, a, b)
+        self.assertTrue(abs(parabola_integral_full_n(function2, a, b, n) - result) < EPSILON)
 
     def test_parabola_integral_full_n02(self):
         a = 89
@@ -79,8 +79,8 @@ class Test(TestCase):
         a = 87
         b = 97
         n = 10000
-        result, error = integrate.quad(function1, a, b)
-        self.assertTrue(abs(boole_integral(function1, a, b, n) - result) < EPSILON)
+        result, error = integrate.quad(function4, a, b)
+        self.assertTrue(abs(boole_integral(function4, a, b, n) - result) < EPSILON)
 
     def test_boole_integral02(self):
         a = 7.2154
