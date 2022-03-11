@@ -13,8 +13,9 @@ arguments = np.array([[-0.577350269, 0.577350269],
 
 
 def gaussian_integral(function, a, b, n):
-    if n < 2 or n > 6:
-        raise ValueError("n should be in [2; 6]")
+    check_abn(a, b, n)
+    if a == b:
+        return 0
     function_sum = 0
     weight_coefficient = weight_coefficients[n - 2]
     argument = arguments[n - 2]
@@ -22,6 +23,13 @@ def gaussian_integral(function, a, b, n):
         xi = (b + a) / 2 + arg * (b - a) / 2
         function_sum += weight * function(xi)
     return (b - a) / 2 * function_sum
+
+
+def check_abn(a, b, n):
+    if a > b:
+        raise ValueError("a should be less than b")
+    if n < 2 or n > 6:
+        raise ValueError("n should be in [2; 6]")
 
 
 if __name__ == '__main__':
