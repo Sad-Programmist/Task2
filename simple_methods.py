@@ -1,13 +1,9 @@
 import math
 
-import numpy as np
+from functions import *
 
 
-def function(x):
-    return 5 * (np.sin(x) - 3) + 1
-
-
-def rectangle_integral(a, b, n):
+def rectangle_integral(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -18,7 +14,7 @@ def rectangle_integral(a, b, n):
     return h * function_sum
 
 
-def trapezoid_integral(a, b, n):
+def trapezoid_integral(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -29,7 +25,7 @@ def trapezoid_integral(a, b, n):
     return h / 2 * (function(a) + function(b) + 2 * function_sum)
 
 
-def parabola_integral(a, b, n):
+def parabola_integral(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -44,7 +40,7 @@ def parabola_integral(a, b, n):
     return h / 3 * (function(a) + function(b) + 4 * function_odd_sum + 2 * function_even_sum)
 
 
-def parabola_integral_full_n(a, b, n):
+def parabola_integral_full_n(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -59,7 +55,7 @@ def parabola_integral_full_n(a, b, n):
     return h / 3 * (function(a) + function(b) + 4 * function_odd_sum + 2 * function_even_sum)
 
 
-def cubic_parabola_integral(a, b, n):
+def cubic_parabola_integral(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -74,7 +70,7 @@ def cubic_parabola_integral(a, b, n):
     return 3 * h / 8 * (function(a) + function(b) + 3 * function_sum_for_3 + 2 * function_sum_for_2)
 
 
-def boole_integral(a, b, n):
+def boole_integral(function, a, b, n):
     check_abn(a, b, n)
     if a == b:
         return 0
@@ -104,9 +100,9 @@ if __name__ == '__main__':
     a = 0
     b = math.pi / 6
     n = 5000
-    print("Rectangle integral: {}".format(rectangle_integral(a, b, n)))
-    print("Trapezoid integral: {}".format(trapezoid_integral(a, b, n)))
-    print("Parabola integral: {}".format(parabola_integral(a, b, n // 2)))
-    print("Parabola integral full n: {}".format(parabola_integral_full_n(a, b, n)))
-    print("Cubic parabola integral: {}".format(cubic_parabola_integral(a, b, n)))
-    print("Boole's integral: {}".format(boole_integral(a, b, n)))
+    print("Rectangle integral: {}".format(rectangle_integral(function1, a, b, n)))
+    print("Trapezoid integral: {}".format(trapezoid_integral(function1, a, b, n)))
+    print("Parabola integral: {}".format(parabola_integral(function1, a, b, n // 2)))
+    print("Parabola integral full n: {}".format(parabola_integral_full_n(function1, a, b, n)))
+    print("Cubic parabola integral: {}".format(cubic_parabola_integral(function1, a, b, n)))
+    print("Boole's integral: {}".format(boole_integral(function1, a, b, n)))
